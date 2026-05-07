@@ -321,3 +321,18 @@ ui.ideaBtn?.addEventListener("click", async () => {
     }
   }
 });
+document.querySelectorAll("button, .nav-cta, .s-btn, .idea-submit-btn, .sim-btn")
+.forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    this.classList.remove("ripple");
+
+    // force reflow so animation restarts
+    void this.offsetWidth;
+
+    this.classList.add("ripple");
+
+    setTimeout(() => {
+      this.classList.remove("ripple");
+    }, 600);
+  });
+});
