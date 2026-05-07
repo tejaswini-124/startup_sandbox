@@ -225,3 +225,14 @@ $("simBtn")?.addEventListener("click", runSimulation);
 $("simInput")?.addEventListener("keydown", e => {
   if (e.key === "Enter" && e.ctrlKey) runSimulation();
 });
+
+document.querySelectorAll(
+  ".card, .lesson-card, .cta-card, .sim-card, .step-card"
+).forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+
+    card.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  });
+});

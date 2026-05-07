@@ -336,3 +336,14 @@ document.querySelectorAll("button, .nav-cta, .s-btn, .idea-submit-btn, .sim-btn"
     }, 600);
   });
 });
+
+document.querySelectorAll(
+  ".card, .lesson-card, .cta-card, .sim-card, .step-card"
+).forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+
+    card.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  });
+});
